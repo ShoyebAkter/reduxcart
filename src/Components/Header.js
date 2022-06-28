@@ -3,13 +3,14 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Badge from '@mui/material/Badge';
 import Container from 'react-bootstrap/Container'
+import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
     render() {
         return (
             <Navbar bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Add To Cart</Navbar.Brand>
+                    <NavLink to='/' className="text-decoration-none text-white">Add To Cart</NavLink>
                     <Nav className="me-auto">
                         <Nav.Link href="#home">Home</Nav.Link>
                     </Nav>
