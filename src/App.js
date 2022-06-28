@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Card from './Components/Card';
+import Cards from './Components/Cards';
 import CardsDetails from './Components/CardsDetails';
 import Header from './Components/Header';
 
@@ -9,8 +9,8 @@ function App() {
     <>
     <Header/>
     <Routes>
-      <Route path='/' element={<Card></Card>}/>
-      <Route path='/details' element={<CardsDetails></CardsDetails>}/>
+      <Route path='/' element={<Cards></Cards>}/>
+      <Route path='/details' element={<CardsDetails></CardsDetails >}/>
     </Routes>
     </>
   );

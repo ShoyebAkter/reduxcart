@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container'
 import { NavLink } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import "./style.css"
 
 const Header = () => {
     const [anchorEl, setAnchorEl] = useState (null);
@@ -42,9 +43,13 @@ const Header = () => {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <div className='card_details'>
+                    <i className='fas fa-close smallclose'
+                    onClick={handleClose}
+                    style={{position:"absolute",top:2,right:20,fontSize:23,cursor:"pointer"}}
+                    ></i>
+                    <p style={{fontSize:22}}>Add something in your cart</p>
+                </div>
             </Menu>
         </Navbar>
 
