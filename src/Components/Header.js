@@ -29,8 +29,8 @@ const Header = () => {
     };
 
     const dlt = (id)=>{
-        // dispatch(DLT(id))
-        console.log(id)
+        dispatch(DLT(id))
+        // console.log(id)
     }
 
 
@@ -81,7 +81,7 @@ const Header = () => {
                                 <tbody>
                                     {
                                         getdata.carts.map((e)=>{
-                                            console.log(e)
+                                            // console.log(e)
                                             return (
                                                 <>
                                                     <tr>
@@ -94,12 +94,13 @@ const Header = () => {
                                                             <p>{e.rname}</p>
                                                             <p>Price : ₹{e.price}</p>
                                                             <p>Quantity : {e.qnty}</p>
-                                                            <p style={{color:"red",fontSize:20,cursor:"pointer"}} onClick={(e)=>console.log(e.id)}>
+                                                            {/* <p style={{color:"red",fontSize:20,cursor:"pointer"}} >
+                                                                <p>{e.id}</p>
                                                                 <i className='fas fa-trash smalltrash'></i>
-                                                            </p>
+                                                            </p> */}
                                                         </td>
 
-                                                        <td className='mt-5'style={{color:"red",fontSize:20,cursor:"pointer"}}  >
+                                                        <td className='mt-5'style={{color:"red",fontSize:20,cursor:"pointer"}} onClick={()=>dlt(e.id)} >
                                                         <i className='fas fa-trash largetrash'></i>
                                                         </td>
                                                     </tr>
