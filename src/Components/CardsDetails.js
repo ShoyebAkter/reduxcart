@@ -1,24 +1,32 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import Table from 'react-bootstrap/Table'
+import { useSelector } from 'react-redux';
 
  const CardsDetails=()=> {
     const [data,setData] = useState([]);
-    // console.log(data);
+    console.log(data);
   
     const {id} = useParams();
     // console.log(id);
+
+    const getdata = useSelector((state)=> state.cartreducer.carts);
+
+
+  useEffect(()=>{
+    setData(getdata);
+  },[])
   
     const history = useNavigate();
   
     return (
       <div>
         <div className="container mt-2">
-        <h2 className='text-center'>Iteams Details Page
+        <h2 className='text-center'>Iteams Details Page {data.length}
         </h2>
-
+ 
         <section className='container mt-3'>
-          <div className="iteamsdetails">
+          <div >
           {
             data.map((ele)=>{
               return (

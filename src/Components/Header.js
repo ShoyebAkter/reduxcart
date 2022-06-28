@@ -5,19 +5,20 @@ import Badge from '@mui/material/Badge';
 import Container from 'react-bootstrap/Container'
 import { NavLink } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
-
+import { DLT } from '../redux/action/action';
 import MenuItem from '@mui/material/MenuItem';
 import "./style.css"
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Table from 'react-bootstrap/esm/Table';
 
 const Header = () => {
 
-
+    const [price,setPrice]=useState(0)
     const getdata=useSelector((state)=>state.cartreducer)
     console.log(getdata)
 
-    const price=0;
+    const dispatch=useDispatch();
+
     const [anchorEl, setAnchorEl] = useState (null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -26,6 +27,21 @@ const Header = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const dlt = (id)=>{
+        // dispatch(DLT(id))
+        console.log(id)
+    }
+
+
+    const total = ()=>{
+        let price = 0;
+        getdata.map((ele,k)=>{
+            price = ele.price * ele.qnty + price
+        });
+        setPrice(price);
+    };
+
     return (
         <Navbar bg="dark" variant="dark" style={{ height: 60 }}>
             <Container>
@@ -65,11 +81,12 @@ const Header = () => {
                                 <tbody>
                                     {
                                         getdata.carts.map((e)=>{
+                                            console.log(e)
                                             return (
                                                 <>
                                                     <tr>
                                                         <td>
-                                                        <NavLink to={`/cart/${e.id}`}   onClick={handleClose}>
+                                                        <NavLink to={`/details/${e.id}`}   onClick={handleClose}>
                                                         <img src={e.imgdata} style={{width:"5rem",height:"5rem"}} alt="" />
                                                         </NavLink>   
                                                         </td>
@@ -77,9 +94,9 @@ const Header = () => {
                                                             <p>{e.rname}</p>
                                                             <p>Price : ₹{e.price}</p>
                                                             <p>Quantity : {e.qnty}</p>
-                                                            {/* <p style={{color:"red",fontSize:20,cursor:"pointer"}} onClick={()=>dlt(e.id)}>
+                                                            <p style={{color:"red",fontSize:20,cursor:"pointer"}} onClick={(e)=>console.log(e.id)}>
                                                                 <i className='fas fa-trash smalltrash'></i>
-                                                            </p> */}
+                                                            </p>
                                                         </td>
 
                                                         <td className='mt-5'style={{color:"red",fontSize:20,cursor:"pointer"}}  >
