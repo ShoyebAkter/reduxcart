@@ -10,6 +10,13 @@ export const cartreducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 carts: [...state.carts, action.payload]
             }
+        case "DLT_CART":
+            const data=state.carts.filter((el)=>el.id!==action.payload)
+
+            return {
+                ...state,
+                carts:data
+            }    
 
         default:
             return state

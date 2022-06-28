@@ -4,9 +4,9 @@ export const ADD=(item)=>{
         payload:item
     }
 }
-export const DLT=(item)=>{
+export const DLT=(id)=>{
     return{
         type: "DLT_CART",
-        payload:item
+        payload:id
     }
 }

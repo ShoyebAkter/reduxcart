@@ -2,10 +2,18 @@ import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Cardsdata from './CardData';
+import { useDispatch } from 'react-redux';
+import { ADD } from '../redux/action/action';
 
 const Cards = () => {
   const [data, setData] = useState(Cardsdata)
-  console.log(data)
+  // console.log(data)
+
+  const dispatch=useDispatch();
+
+  const send=(e)=>{
+    dispatch(ADD(e));
+  }
 
   return (
     <div className='container mt-3'>
@@ -25,7 +33,7 @@ const Cards = () => {
                     </Card.Text>
                     <div className="button_div d-flex justify-content-center">
                       <Button variant="primary"
-                        // onClick={() => send(element)}
+                        onClick={() => send(element)}
                         className='col-lg-12'>Add to Cart</Button>
                     </div>
 
