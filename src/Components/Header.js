@@ -5,10 +5,18 @@ import Badge from '@mui/material/Badge';
 import Container from 'react-bootstrap/Container'
 import { NavLink } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
+
 import MenuItem from '@mui/material/MenuItem';
 import "./style.css"
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+
+
+    const getdata=useSelector((state)=>state.cartreducer)
+    console.log(getdata)
+
+
     const [anchorEl, setAnchorEl] = useState (null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
