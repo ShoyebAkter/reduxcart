@@ -36,7 +36,7 @@ const Header = () => {
 
     const total = ()=>{
         let price = 0;
-        getdata.map((ele,k)=>{
+        getdata.carts.map((ele,k)=>{
             price = ele.price * ele.qnty + price
         });
         setPrice(price);
